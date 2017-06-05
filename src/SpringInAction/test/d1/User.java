@@ -2,7 +2,7 @@ package SpringInAction.test.d1;
 
 
 /**
- * spring 中使用set方式注入属性
+ * spring 使用set方式注入属性
  * @author fanxuchao
  *
  */

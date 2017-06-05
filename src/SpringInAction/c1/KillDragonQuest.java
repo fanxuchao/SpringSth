@@ -6,8 +6,7 @@ public class KillDragonQuest implements Quest {
 
 	PrintStream stream;
 	
-	public KillDragonQuest() {
-	}
+	public KillDragonQuest() {	}
 	public KillDragonQuest(PrintStream stream) {
 		this.stream = stream;
 	}
