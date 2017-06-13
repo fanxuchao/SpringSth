@@ -19,10 +19,11 @@ public class KnightMain {
 		knight.embarkQuest();
 		
 		//使用配置类Configuration代替xml配置文件
-		ApplicationContext context2  
+	/*	ApplicationContext context2  
 		    = new AnnotationConfigApplicationContext(KnightConfig.class);
 		Knight knight2 = context2.getBean(BraveKnight.class);
 		knight2.embarkQuest();
+	 */
 	}
 
 }
