@@ -10,4 +10,14 @@
       http://www.springframework.org/schema/context 
       http://www.springframework.org/schema/context/spring-context.xsd ">
 	<context:component-scan base-package="SpringInAction.c2"></context:component-scan>
+
+	<!-- 在配置xml中加载配置类，实现配置类和xml混合配置
+	<bean class="SpringInAction.c2.C2ConfigClass"></bean>
+	 -->
+	
+	<bean id="cdPlay" class="SpringInAction.c2.CDPlayer">
+		<constructor-arg ref="cd"></constructor-arg>
+	</bean>
+	<bean id="cd" class="SpringInAction.c2.ZhouCd"></bean>
+	
 </beans>
