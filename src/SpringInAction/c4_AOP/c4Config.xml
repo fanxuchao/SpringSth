@@ -6,4 +6,24 @@
       http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/beans 
       http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+ 	<!-- 
+ 	Exception in thread "main" java.lang.ClassCastException: com.sun.proxy.$Proxy2 cannot be cast to SpringInAction.c4_AOP.SingPreformance
+	at SpringInAction.c4_AOP.C4Main.main(C4Main.java:24)
+	Spring的文档中这么写的：Spring AOP部分使用JDK动态代理或者CGLIB来为目标对象创建代理。如果被代理的目标实现了至少一个接口，则会使用JDK动态代理。所有该目标类型实现的接口都将被代理。若该目标对象没有实现任何接口，则创建一个CGLIB代理。
+        所以，解决办法是，如果用JDK动态代理，就必须为被代理的目标实现一个接口（要注意的地方是：需要将ctx.getBean()方法的返回值用接口类型接收）；如果使用CGLIB强制代理，就必选事先将CGLIB包导入项目，设置beanNameAutoProxyCreator的proxyTargetClass属性为true。
+	这里DeviceService实现了接口IDeviceService，所以会使用JDK动态代理，从而使(DeviceService) deviceService强制转换的时候报错（因为实现IDeviceService接口的代理类是属于DeviceService子类）。因此需要使用CGLIB强制代理。需要在springContext.xml中增加如下配置：
+ 	
+ 	<aop:aspectj-autoproxy proxy-target-class="true"/> -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/> 
+	<bean id = "audience" class="SpringInAction.c4_AOP.Audience"></bean>
+	
+	<bean id= "singPerformance" class="SpringInAction.c4_AOP.SingPreformance"></bean>
+	<aop:config>
+		<aop:aspect ref="audience">
+			<aop:pointcut expression="execution (* SpringInAction.c4_AOP.SingPreformance.perform(..) )" 
+			id="seePerform"/>
+		<aop:before method="takeSeats" pointcut-ref="seePerform"/>	
+		</aop:aspect>
+	</aop:config>
 </beans>

@@ -14,8 +14,8 @@ public class KnightMain {
 	    configXmlPath.append("SpringInAction/c1/c1Config.xml");
 	    ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(configXmlPath.toString());
 		Knight knight = context.getBean(Knight.class);
-		Knight k2 = (Knight) context.getBean("knight");
-		k2.embarkQuest();
+//		Knight k2 = (Knight) context.getBean("knight");
+//		k2.embarkQuest();
 		knight.embarkQuest();
 		
 		//使用配置类Configuration代替xml配置文件
