@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
+@EnableAspectJAutoProxy(proxyTargetClass=true)
 @ComponentScan
 public class C4ConfigClass {
 
@@ -15,7 +16,7 @@ public class C4ConfigClass {
 	}
 	
 	@Bean
-	public Performance getSingPreformance(){
+	public SingPreformance getSingPreformance(){
 		return new SingPreformance();
 	} 
 }

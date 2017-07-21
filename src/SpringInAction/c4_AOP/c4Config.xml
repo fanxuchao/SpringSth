@@ -15,7 +15,7 @@
 	这里DeviceService实现了接口IDeviceService，所以会使用JDK动态代理，从而使(DeviceService) deviceService强制转换的时候报错（因为实现IDeviceService接口的代理类是属于DeviceService子类）。因此需要使用CGLIB强制代理。需要在springContext.xml中增加如下配置：
  	
  	<aop:aspectj-autoproxy proxy-target-class="true"/> -->
-	<aop:aspectj-autoproxy proxy-target-class="true"/> 
+	<aop:aspectj-autoproxy proxy-target-class="true"/>  
 	<bean id = "audience" class="SpringInAction.c4_AOP.Audience"></bean>
 	
 	<bean id= "singPerformance" class="SpringInAction.c4_AOP.SingPreformance"></bean>

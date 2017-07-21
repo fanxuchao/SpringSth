@@ -6,18 +6,18 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
 
-//@Aspect
+@Aspect
 public class Audience {
 	
-//	@Pointcut("execution (* SpringInAction.c4_AOP.SingPreformance.perform(..) )")
+	@Pointcut("execution (* SpringInAction.c4_AOP.SingPreformance.perform(..) )")
 	public void performance(){}
 	
-//	@Before("performance()")
+	@Before("performance()")
 	public void takeSeats(){
 		System.out.println("take seat");
 	}
 	
-//	@After("performance()")
+	@After("performance()")
 	public void afterPerform(){
 		System.out.println("leave ");
 	}
