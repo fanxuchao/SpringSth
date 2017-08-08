@@ -8,10 +8,9 @@ import org.springframework.context.annotation.FilterType;
 
 
 @Configuration
-@ComponentScan(basePackages={"spitter"},
+@ComponentScan(basePackages={"c5_MVC"},
     excludeFilters={
 		@Filter(type=FilterType.ANNOTATION, value=EnableWebMvc.class)
 })
 public class RootConfig {
-
 }
